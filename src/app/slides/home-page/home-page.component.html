@@ -1,1 +1,20 @@
-<p>home-page works!</p>
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="0" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+    <p [style]="'height:50vh;background-color:red;'">home-page works!</p>
+    <p [style]="'height:50vh;background-color:red;'">home-page works!</p>
+    <div *ngFor="let x of homeArray; let i = index">
+        <div class="itemCard itemCardMargin">
+            <div class="itemCardBody itemCardPadding">
+                <div class="itemCardImgFrame" [style]="'height:50vh;'">
+                    <img class="itemImageFrameImage" [src]="'https://picsum.photos/'+5+'00/'+(10-i%10)+'00'">
+                </div>
+            </div>
+            <div class="itemCard itemCardPadding">
+                <b>
+                    {{i}}
+                    {{i%10}}
+                </b>
+            </div>
+        </div>
+    </div>
+</div>

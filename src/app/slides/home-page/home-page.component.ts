@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  homeArray:any[]=[0,];
+  onScroll() {
+    this.homeArray.push(0)
+    console.log("scrolled!!");
+  }
 
 }

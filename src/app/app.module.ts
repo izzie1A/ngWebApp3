@@ -30,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule,
     MatDialogModule,
     FormsModule,
+    InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
