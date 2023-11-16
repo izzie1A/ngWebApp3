@@ -1,0 +1,89 @@
+<div class="itemCard" cdkDrag>
+    <div class=" flexBetween itemCardPadding">
+        <div class=" " >
+            <span class="material-symbols-outlined" [style]="'font-size:2ch;'" cdkDragHandle>
+                drag_handle
+            </span>
+            <b>{{item.name}}</b>
+        </div>
+        <button class="itemButton" (click)="editTask()">
+            <span class="material-symbols-outlined" [style]="'font-size:2ch;'">
+                edit
+            </span>
+        </button>
+    </div>
+    <div class="itemCardBody">
+        
+        <!-- <div class="itemCardImageFrame">
+            <img class="itemCardImage" *ngIf="item.image == ''" src="{{item.imageArray[0]}}">
+        </div> -->
+        <!-- <div class="itemCardImageFrameContent itemCardPadding">
+            <a>asd</a>
+            <b>asd</b>
+        </div> -->
+    </div>
+</div>
+<!-- <div id="viewmode1">
+    <div class="itemCardBody flex">
+        <div class="itemCardImageFrame flexCenter">
+            <img class="itemCardImage" src="{{item.image}}">
+            <img class="itemCardImage" *ngIf="item.image == ''" src="{{item.imageArray[0]}}">
+        </div>
+
+        <div class="x">
+            <div class="itemCardImageFrameContent3 itemCardPadding ">
+                <button class="itemButton" (click)="deleteFile(address,item.id)">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>
+                </button>
+                <div class="flex">
+                    <button class="itemButton" (click)="editTask()">
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="itemCardImageFrameContent itemCardPadding ">
+                <div *ngFor="let x of item|keyvalue" class="y">
+                    <div *ngIf="
+                    x.key != 'id' &&
+                    x.key != 'metaData' &&
+                    x.key != 'media' &&
+                     x.key != 'image' &&
+                     x.key != 'tagArray' &&
+                     x.key != 'imageArray'  
+                     ;" class="y">
+                        <b class="">{{x.key}}</b>
+                        <a>{{x.value}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" itemCardGrid3 itemCardPadding">
+                <div class="itemImageFrame" *ngFor="let x of item.imageArray" [style]="'box-shadow:none;'">
+                    <img class="itemImageFrameImage" [src]="x">
+                </div>
+            </div>
+        </div>
+
+        <div class="flexList" cdkDragHandle>
+            <button class="itemButton" (click)="moveFile(-1)">
+                <span class="material-symbols-outlined">
+                    arrow_drop_up
+                </span>
+            </button>
+            <button class="itemButton">
+                <span class="material-symbols-outlined">
+                    drag_handle
+                </span>
+            </button>
+            <button class="itemButton" (click)="moveFile(1)">
+                <span class="material-symbols-outlined">
+                    arrow_drop_down
+                </span>
+            </button>
+        </div>
+    </div>
+</div> -->

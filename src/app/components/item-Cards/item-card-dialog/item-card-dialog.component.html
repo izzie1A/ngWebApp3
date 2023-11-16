@@ -1,0 +1,73 @@
+<div class="itemCard" [style]="'border-radius:0px;'">
+    <div class="itemCardHeader">
+        <br>
+    </div>
+    <div class="itemCardBody itemCardPadding">
+        <div class="itemCardGrid text" [style]="'font-size:var(--title)'">
+            <a>Name</a>
+            <input [(ngModel)]="data.task.name">
+
+            <a>Description</a>
+            <input [(ngModel)]="data.task.description">
+        </div>
+        <!-- imageArray -->
+        <div class=" itemCardImageContainer itemCardKeytValue itemCardPadding itemCardMargin"
+            *ngIf="data.task.imageArray!!">
+            <div class="flexList itemCardPadding">
+                <button class="upload-btn-wrapper">
+                    <span class="material-symbols-outlined" [style]="'font-size:var(--title)'">cloud_upload</span>
+                    <input class="fileInput" type="file"
+                        (change)="onFileArrayPush( 'loreamFolder/','imageArray',imgListImgInput);" multiple
+                        #imgListImgInput>
+                </button>
+            </div>
+            <div class="">
+                <div class="itemCardGrid2" (cdkDropListDropped)="localArrayDrop($event)"
+                    cdkDropListOrientation="vertical" [cdkDropListData]="data.task.imageArray" cdkDropList
+                    [style]="'max-height:50vh;overflow-y:scroll;'">
+                    <div class="itemImageFrame" *ngFor="let x of data.task.imageArray ; let i = index" cdkDrag>
+                        <img class="itemImageFrameImage" src="{{x}}" [style]="''">
+                        <div class="itemCardImageEditPanel">
+                            <div class="flexCenter">
+                                <span class="material-symbols-outlined" cdkDragHandle>drag_handle</span>
+                            </div>
+                            <button class="itemButton" (click)="onFileDelete($event,data.task,'imageArray',i)">
+                                <span class="material-symbols-outlined">
+                                    cancel
+                                </span>
+                            </button>
+                        </div>
+                        <div class="flex itemCardPadding">
+                            <div class="flexCenter">
+                                <span class="material-symbols-outlined" cdkDragHandle>drag_handle</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- dialog controlbar -->
+    <div class="itemCardPadding">
+        <div class="flexBetween itemCardPadding">
+            <button mat-button [mat-dialog-close]="{ task: data.task, delete: true }" [style]="'color: red;'">
+                <a>Delete</a>
+                <mat-icon>delete</mat-icon>
+            </button>
+            <div>
+                <button mat-button (click)="cancel()">
+                    <a>Cancel</a>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+                <button mat-button [mat-dialog-close]="{ task: data.task }">
+                    <a>Save</a>
+                    <mat-icon>save</mat-icon>
+                </button>
+                <button *ngIf="data.enableDelete" mat-fab color="primary" aria-label="Delete"
+                    [mat-dialog-close]="{ task: data.task, delete: true }">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

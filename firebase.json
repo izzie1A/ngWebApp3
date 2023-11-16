@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "ngWebApp3",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

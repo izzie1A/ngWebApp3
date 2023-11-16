@@ -1,0 +1,53 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+<div class="itemCardPadding">
+    <div class="flexBetween">
+        <div class="itemCardPadding">
+            <b>3Page-control</b>
+        </div>
+    </div>
+
+    <div class=" itemCard">
+        <div class="itemCardHeader itemCardPadding flexBetween">
+            <div class="flex" *ngIf="userName | async as user">
+                <img alt="userImage" class="itemCardIconFrame itemCardMargin" [src]="user.photoURL">
+                <a class="itemCardPadding">{{user.displayName}}</a>
+            </div>
+            <div class="">
+                <button (click)="newTask()" class="itemButton" [style]="'font-size:var(--title);'">
+                    <span class="material-symbols-outlined" [style]="'font-size:var(--title);'">
+                        add
+                    </span>
+                    <b>New</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="itemCardBody itemCardGrid">
+            <div class="listBody" #{{address}}="cdkDropList" id="{{address}}" [cdkDropListData]="item$ | async"
+                (cdkDropListDropped)="drop($event)" cdkDropList>
+                <app-item-card (newItemEvent)="addItem($event,i)" 
+                (click)="selectItemCard(x)"
+                [address]="address"
+                    *ngFor="let x of item$ | async ; let i = index;" [item]="x">
+                </app-item-card>
+            </div>
+            <div class="itemCard itemCardMargin" >
+                <div class="itemCardBody itemCardPadding">
+                    <div class="x">
+                        <b class="content">Description</b>
+                        <a class="itemCardPadding keyValue">{{itemCardViewer?.id}}</a>
+                        <b class="content">image</b>
+                        <a class="itemCardPadding keyValue">{{itemCardViewer?.data}}</a>
+                    </div>
+                </div>
+                <div class="itemCardHeader itemCardPadding">
+                    <div class="x">
+                        <b class="content">Description</b>
+                        <a class="itemCardPadding keyValue">Testing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
