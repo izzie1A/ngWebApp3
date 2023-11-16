@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FirebaseControlService, firebaseItemCard, FireItemCard, tItem } from "src/app/services/firebase-control.service";
+import { FirebaseControlService, fItem } from "src/app/services/firebase-control.service";
 import { AuthService } from "src/app/services/auth.service";
 import { User } from 'firebase/auth';
 import { Observable } from 'rxjs';
@@ -20,7 +20,7 @@ export class PageControlComponent {
   userName:Observable<User|null> = this.authS.authState$;
   userCredit:string="";
 
-  itemCardViewer:tItem = new tItem('','');
+  itemCardViewer:fItem = new fItem('','');
 
   constructor(private fbS: FirebaseControlService, private authS:AuthService, public dialog: MatDialog) {
     this.authS.authState$.forEach((result:User|null)=>{
@@ -29,7 +29,7 @@ export class PageControlComponent {
     
 
   }
-  selectItemCard(input:tItem){
+  selectItemCard(input:fItem){
     console.log(input);
     this.itemCardViewer = input; 
   }
@@ -37,7 +37,7 @@ export class PageControlComponent {
   selectCollection(address: string) {
     this.address = address;
   } 
-  
+
   async addItem(newItem: number, num: number) {
     let resultPack: string | any[] = [];
     let sub = this.item$?.subscribe((result) => {
@@ -72,6 +72,7 @@ export class PageControlComponent {
     }
   }
   newTask(): void {
+    let x = new fItem('','').getter();
     const dialogRef = this.dialog.open(ItemCardDialogComponent, {
       width:'70vh',
       data: {
@@ -80,6 +81,11 @@ export class PageControlComponent {
           description: '',
           imageArray: [],
         },
+        // task: {
+        //   name: '',
+        //   description: '',
+        //   imageArray: [],
+        // },
       },
     });
     dialogRef
@@ -89,8 +95,10 @@ export class PageControlComponent {
           return;
         }
         console.warn(result.task);
-        this.fbS.createCustomDoc(this.address, result.task);
+        this.fbS.createDoc(this.address, result.task);
       });
+  }
+  saveTask(){
   }
 
 }

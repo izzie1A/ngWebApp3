@@ -44,63 +44,22 @@ export class FirebaseControlService {
     const docRef = await addDoc(collcetionRef, {});
     return docRef.id
   }
-  async getItemNullDoc(addaress: string, id: string) {
-    const docData = {
-      name: "Hello world!",
-      timeStamp: new Date(),
-      tag: {
-        description: null,
-        price: 5,
-        currency: "$usd",
-        itemMeta: {
-          imgMeta: {
-            imageURL: "",
-            imageArray: [],
-          },
-          describeTag: {
-            tag1: "",
-            tag2: [],
-          },
-        }
-      },
-    }
-    return docData
-  }
 
+  // firestore curd
   async docSave(address: string, id: string, content: any) {
     const docRef = doc(this.firestore, address, id);
     const docSnap = await getDoc(doc(this.firestore, address, id));
     if (docSnap.exists()) {
       console.log("Document exist data:", docSnap.data())
-      // const result = await updateDoc(docRef, content);
-      console.warn(content)
       updateDoc(docRef, content);
-      return 
+      return
     } else {
-      console.log("No such document! now create");
-      console.log(address, content);
+      console.log("No such document! now create", address, content);
       return await setDoc(docRef, content);
     }
   }
-
-
-  // firestore curd
-  async createCustomDoc(address: string, file: any) {
+  async createDoc(address: string, file: any) {
     const content = file;
-    const docRef = await addDoc(collection(this.firestore, address), content);
-    content.id = docRef.id;
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      await setDoc(doc(this.firestore, docRef.path), content);
-      let x = await this.readDoc(address, docRef.id);
-      console.log(x);
-    } else {
-      console.warn("doc create error!");
-    }
-  }
-  async createDoc(address: string) {
-    // const content = new fItem("test","test");
-    const content = this.getCustomFile();
     const docRef = await addDoc(collection(this.firestore, address), content);
     content.id = docRef.id;
     const docSnap = await getDoc(docRef);
@@ -137,47 +96,6 @@ export class FirebaseControlService {
   }
   async deleteDoc(address: string, id: string) {
     return await deleteDoc(doc(this.firestore, address, id.toString()));
-  }
-
-
-  // customObject uncompleted
-  async setCustomFile(address: string, id: string) {
-    let x = new tItem('undefinded', 'undefined');
-    // :any potential threth
-    const tItemConverter = {
-      toFirestore: (tItem: fItem) => {
-        return {
-          name: tItem.name,
-          id: tItem.id,
-        };
-      },
-      // :any potential threth
-      fromFirestore: (snapshot: any, options: any) => {
-        const data = snapshot.data(options);
-        return new tItem(data.name, data.id);
-      }
-    }
-    const ref = doc(this.firestore, address, id).withConverter(tItemConverter);
-    await setDoc(ref, x);
-  }
-  async addCustomFile(address: string) {
-    let x = new tItem('undefinded', 'undefined');
-    // :any potential threth
-    const tItemConverter = {
-      toFirestore: (tItem: fItem) => {
-        return {
-          name: tItem.name,
-          id: tItem.id,
-        };
-      },
-      // :any potential threth
-      fromFirestore: (snapshot: any, options: any) => {
-        const data = snapshot.data(options);
-        return new tItem(data.name, data.id);
-      }
-    }
-    const ref = doc(this.firestore, address, x.id).withConverter(tItemConverter);
-    await setDoc(ref, x);
   }
 
   // collection
@@ -314,15 +232,26 @@ export class tItem implements firebaseFile {
   }
 }
 
-export class fItem extends tItem {
+export class fItem {
+  id: string = "";
   name: string = "";
   description: string = "";
   image: string = "";
   imageArray: string[] = [];
   createTime: number = Date.now();
   constructor(name: string, id: string) {
-    super(name, id);
     this.name = name;
+    this.id = id;
+  }
+  getter() {
+    return {
+      id: this.id,
+      name: this.name,
+      description: this.description,
+      image: this.image,
+      imageArray: this.imageArray,
+      createTime: this.createTime,
+    }
   }
 }
 

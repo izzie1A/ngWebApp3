@@ -1,7 +1,7 @@
 .userImageFrame {
     border-radius: 1000px;
-    height: var(--imgM);
-    width: var(--imgM);
+    height: var(--imgL);
+    width: var(--imgL);
     overflow: hidden;
     display: flex;
     justify-content: center;

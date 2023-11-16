@@ -1,6 +1,6 @@
-<div class="itemCard" cdkDrag>
+<div class="itemCard" cdkDrag [style]="'border-radius:0px;'">
     <div class=" flexBetween itemCardPadding">
-        <div class=" " >
+        <div class=" ">
             <span class="material-symbols-outlined" [style]="'font-size:2ch;'" cdkDragHandle>
                 drag_handle
             </span>
@@ -13,16 +13,17 @@
         </button>
     </div>
     <div class="itemCardBody">
-        
-        <!-- <div class="itemCardImageFrame">
-            <img class="itemCardImage" *ngIf="item.image == ''" src="{{item.imageArray[0]}}">
-        </div> -->
-        <!-- <div class="itemCardImageFrameContent itemCardPadding">
-            <a>asd</a>
-            <b>asd</b>
-        </div> -->
+
     </div>
 </div>
+<!-- <div class="itemCardImageFrame">
+    <img alt="itemImage" class="itemCardImage" *ngIf="item.image != ''" src="{{item.image}}">
+    <img alt="itemImage" class="itemCardImage" *ngIf="item.image == ''" src="{{item.imageArray[0]}}">
+</div> -->
+<!-- <div class="itemCardImageFrameContent itemCardPadding">
+    <a>asd</a>
+    <b>asd</b>
+</div> -->
 <!-- <div id="viewmode1">
     <div class="itemCardBody flex">
         <div class="itemCardImageFrame flexCenter">

@@ -86,15 +86,21 @@
     </div>
 </div>
 
+
+<!-- login view -->
 <!-- login view -->
 <div class="itemCard itemCardMargin " *ngIf="this.authS.user$ |async as user">
 
+    <div class="itemCardHeader">
+        <br>
+        <br>
+    </div>
     <div class="itemCardSholder">
     </div>
 
     <div class="itemCardBody ">
         <div class="itemCardGrid3 center itemCardPadding">
-            <div class="userImageFrame">
+            <div class="userImageFrame ">
                 <img src={{user.photoURL}} class="userImage" alt="img">
             </div>
             <div class="">
@@ -119,25 +125,38 @@
             </button>
         </div>
     </div>
-    <div class="itemCardBack ">
-        <div></div>
+    <div class="itemCardBack">
+        <div class="itemCard">
+            <div class=" itemCardPadding">
+                <b>Info</b>
+            </div>
+            <div class="itemCardBody itemCardPadding">
+                <div class="flexBetween">
+                    <div class="itemCardMargin">
+                        <b>Name</b>
+                        <p>{{user.displayName}}</p>
+                        <div class="flex">
+                            <input type="text" [style]="'width:auto;'">
+                            <button (click)="0" class=" itemImageButton flexAround">
+                                <span class="material-symbols-outlined ">Save</span>
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="itemCard">
+            <div class=" itemCardPadding">
+                <b>Message</b>
+            </div>
+            <div class="itemCardBack">
+                <div class="itemCard">
+                    <b>newMesage design await</b>
+                    <br>
+                </div>
+                <!-- <p>{{user.displayName}}</p> -->
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="itemCard itemCardMargin" *ngIf="this.authS.user$ |async as user">
-    <div class="itemCardHeader itemCardPadding">
-        <b>Message</b>
-    </div>
-    <div class="itemCardBody itemCardPadding">
-        <p>{{user.displayName}}</p>
-    </div>
-</div>
-
-<div class=" itemCardMargin" *ngIf="this.authS.user$ |async as user">
-    <div class=" itemCardPadding">
-        <b>info</b>
-    </div>
-    <div class="itemCardBody itemCardPadding">
-        <a>{{user.displayName}}</a>
-    </div>
-</div>
+</div> 

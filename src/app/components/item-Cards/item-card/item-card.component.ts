@@ -181,7 +181,7 @@ export class ItemCardComponent {
     this.item[key][index] = null
     console.log(ref[key])
   }
-
+// dialog
   editTask(): void {
     const dialogRef = this.dialog.open(ItemCardDialogComponent, {
       width: '50vh',

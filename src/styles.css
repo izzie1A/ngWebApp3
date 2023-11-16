@@ -40,8 +40,8 @@ body {
     --screenL: 2000px;
 
     --imgS: 4ch;
-    --imgM: 120px;
-    --imgL: 240px;
+    --imgM: 6ch;
+    --imgL: 8ch;
 
     --boxShadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     --boxShadow2: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
@@ -142,7 +142,6 @@ body {
     align-items: center;
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
 }
-
 .itemImageFrameImage {
     width: 100%;
 }
@@ -588,10 +587,9 @@ body {
         --title: 3ch;
         --context:2ch;
         --keyvalue: 9px;
-
         --imgS: 6ch;
-        --imgM: 10ch;
-        --imgL: 240px;
+        --imgM: 8ch;
+        --imgL: 10ch;
     }
 
     .itemImageFrame {
@@ -612,6 +610,9 @@ body {
         --title: 4ch;
         --context: 15px;
         --keyvalue: 12px;
+        --imgS: 8ch;
+        --imgM: 10ch;
+        --imgL: 12ch;
     }
 
     .itemImageFrame {
