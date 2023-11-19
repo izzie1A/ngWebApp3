@@ -174,7 +174,6 @@ body {
     width: 100%;
 }
 
-
 .itemCardImageContainer {}
 
 
@@ -299,8 +298,10 @@ body {
 .itemCardGrid {
     display: grid;
     grid-template-columns: 31% 69%;
-    align-items: center;
-    justify-content: space-around;
+}
+.itemCardGird {
+    display: grid;
+    grid-template-columns: 69% 31%;
 }
 
 .itemCardGrid2 {

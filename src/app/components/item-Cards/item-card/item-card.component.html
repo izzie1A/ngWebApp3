@@ -1,11 +1,14 @@
-<div class="itemCard" cdkDrag [style]="'border-radius:0px;'">
-    <div class=" flexBetween itemCardPadding">
-        <div class=" ">
+<div class="itemCard " cdkDrag [style]="'border-radius:0px;'" id="x">
+    <div class=" itemCardPadding itemCardGird">
+        <div class=" itemCardGrid">
             <span class="material-symbols-outlined" [style]="'font-size:2ch;'" cdkDragHandle>
                 drag_handle
             </span>
-            <b>{{item.name}}</b>
+            <div [style]="'overflow:hidden;'" >
+                <b>{{item.name}}</b>
+            </div>
         </div>
+        
         <button class="itemButton" (click)="editTask()">
             <span class="material-symbols-outlined" [style]="'font-size:2ch;'">
                 edit
@@ -13,7 +16,6 @@
         </button>
     </div>
     <div class="itemCardBody">
-
     </div>
 </div>
 <!-- <div class="itemCardImageFrame">

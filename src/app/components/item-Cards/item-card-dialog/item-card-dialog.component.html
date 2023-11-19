@@ -25,6 +25,7 @@
                 <div class="itemCardGrid2" (cdkDropListDropped)="localArrayDrop($event)"
                     cdkDropListOrientation="vertical" [cdkDropListData]="data.task.imageArray" cdkDropList
                     [style]="'max-height:50vh;overflow-y:scroll;'">
+                    
                     <div class="itemImageFrame" *ngFor="let x of data.task.imageArray ; let i = index" cdkDrag>
                         <img class="itemImageFrameImage" src="{{x}}" [style]="''">
                         <div class="itemCardImageEditPanel">

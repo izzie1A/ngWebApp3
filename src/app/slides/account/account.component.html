@@ -33,28 +33,34 @@
                 </button>
 
 
-                <div class="itemCard itemCardMargin">
-                    <div class="itemCardHeader itemCardPadding">
-                        <a>Email Sign in</a>
-                    </div>
-                    <div class="itemCardBody itemCardPadding ">
-                        <div class="itemCardGrid ">
-                            <a>Email:</a>
-                            <input type="text" #loginEmail>
-                            <a>Password:</a>
-                            <input type="password" #loginPassword>
+                <div>
+                </div>
+                <div>
+                    <br>
+                    <div class=" ">
+                        <div class="itemCardBody">
+                            <div class="itemCardGrid ">
+                                <a>Email:</a>
+                                <input type="text" #loginEmail>
+                                <a>Password:</a>
+                                <input type="password" #loginPassword>
+                            </div>
+                        </div>
+                        <div class="itemCardPadding">
+                            <button class=" accountButton flexAround itemCardMargin"
+                                (click)="emailSignin(loginEmail.value,loginPassword.value)">
+                                <span class="material-symbols-outlined gsi-material-button-icon">
+                                    email
+                                </span>
+                                <span class="gsi-material-button-contents">Sign in with email</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <button class="gsi-material-button" (click)="emailSignin(loginEmail.value,loginPassword.value)">
-                    <span class="material-symbols-outlined" [style]="'font-size:2ch;'">
-                        email
-                    </span>
-                    <span class="gsi-material-button-contents">Sign in with email</span>
-                </button>
             </div>
         </div>
     </div>
+
     <!-- email resister -->
     <div class="itemCard itemCardMargin">
         <div class="itemCardHeader itemCardPadding">
@@ -68,6 +74,8 @@
             <a>Re-enter Password :</a>
             <input type="password" #registerPassword2>
         </div>
+
+        <div></div>
         <div class="flexBetween itemCardPadding ">
             <div>
                 <!-- error messae -->
@@ -155,8 +163,8 @@
                     <b>newMesage design await</b>
                     <br>
                 </div>
-                <!-- <p>{{user.displayName}}</p> -->
+                <p>{{user.displayName}}</p>
             </div>
         </div>
     </div>
-</div> 
+</div>

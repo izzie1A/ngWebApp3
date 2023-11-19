@@ -23,27 +23,21 @@
             </div>
         </div>
 
-        <div class="itemCardBody itemCardGrid itemCardPadding">
-            <!-- menu -->
-            <div class="listBody" #{{address}}="cdkDropList" id="{{address}}" [cdkDropListData]="item$ | async"
-                (cdkDropListDropped)="drop($event)" cdkDropList [style]="'max-height:70vh;overflow-y:auto;'">
-                <app-item-card (newItemEvent)="addItem($event,i)" (click)="selectItemCard(x)" [address]="address"
-                    *ngFor="let x of item$ | async ; let i = index;" [item]="x">
-                </app-item-card>
-            </div>
+        <div class="itemCardBody itemCardGird itemCardPadding">
             <!-- display -->
-            <div class="itemCard itemCardMargin">
-                <div class="itemCardBody itemCardPadding">
-                    <div class="x">
-                        <!-- <b class="content">Description</b>
-                        <a class="itemCardPadding keyValue">{{itemCardViewer?.id}}</a>
-                        <b class="content">image</b>
-                        <a class="itemCardPadding keyValue">{{itemCardViewer.image}}</a> -->
-                        <div class="itemCardImgFrame">
-                            <img *ngIf="itemCardViewer.imageArray.length>1" class="itemImageFrameImage"
+            <div>
+
+                <div class="itemCard itemCardMargin display" [style]="'display:relative;'">
+                    <div class="itemCardHeader itemCardPadding">
+                        <div class="">
+                            <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
+                        </div>
+                    </div>
+                    <div class="itemCardBody ">
+                        <div class="itemCardImgFrame" [style]="'min-height:var(--imgL);'" >
+                            <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
                                 [src]="itemCardViewer.imageArray[0]">
-                            <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center"
-                                [style]="'height:var(--imgL)'">
+                            <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center">
                                 <b>No Image uploaded</b>
                                 <span class="material-symbols-outlined">
                                     image
@@ -51,15 +45,29 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="itemCardHeader itemCardPadding">
-                    <div class="x">
-                        <!-- <b class="content">Description</b> -->
-                        <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
-                        <a class="itemCardPadding keyValue">Testing</a>
-                    </div>
+                  
                 </div>
             </div>
+
+            <!--  -->
+
+            <!-- menu -->
+            <div>
+                <button>Refresh</button>
+                <button>New</button>
+                <div class=" itemCardGird itemCardPadding">
+                    <input type="text">
+                    <button class="material-symbols-outlined">search</button>
+                </div>
+
+                <div class="listBody x" #{{address}}="cdkDropList" id="{{address}}" [cdkDropListData]="item$ | async"
+                    (cdkDropListDropped)="drop($event)" cdkDropList>
+                    <app-item-card (newItemEvent)="editItem($event,i)" (click)="selectItemCard(x)" [address]="address"
+                        *ngFor="let x of item$ | async ; let i = index;" [item]="x">
+                    </app-item-card>
+                </div>
+            </div>
+            <!--  -->
         </div>
     </div>
 </div>

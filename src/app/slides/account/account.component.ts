@@ -42,5 +42,4 @@ export class AccountComponent {
     };
     return validateEmail(content.email)
   }
-
 }

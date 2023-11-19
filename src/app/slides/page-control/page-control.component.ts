@@ -7,7 +7,6 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { ItemCardDialogComponent, TaskDialogResult } from '../../components/item-Cards/item-card-dialog/item-card-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-page-control',
   templateUrl: './page-control.component.html',
@@ -17,26 +16,24 @@ import { MatDialog } from '@angular/material/dialog';
 export class PageControlComponent {
   address: string = 'loreamFolder';
   item$: Observable<any[]> = this.fbS.t(this.address);
-  userName:Observable<User|null> = this.authS.authState$;
-  userCredit:string="";
+  userName: Observable<User | null> = this.authS.authState$;
+  userUid: string = "";
 
-  itemCardViewer:fItem = new fItem('','');
+  itemCardViewer: fItem = new fItem('', '');
 
-  constructor(private fbS: FirebaseControlService, private authS:AuthService, public dialog: MatDialog) {
-    this.authS.authState$.forEach((result:User|null)=>{
-      result?this.userCredit=result.uid:0;
+  constructor(private fbS: FirebaseControlService, private authS: AuthService, public dialog: MatDialog) {
+    this.authS.authState$.forEach((result: User | null) => {
+      result ? this.userUid = result.uid : 0;
     });
-    
-
   }
-  selectItemCard(input:fItem){
+  selectItemCard(input: fItem) {
     console.log(input);
-    this.itemCardViewer = input; 
+    this.itemCardViewer = input;
   }
 
   selectCollection(address: string) {
     this.address = address;
-  } 
+  }
 
   async addItem(newItem: number, num: number) {
     let resultPack: string | any[] = [];
@@ -57,8 +54,12 @@ export class PageControlComponent {
       }
     })
   }
+  async editItem(newItem: number, num: number) {
+    console.log(newItem, num);
+  }
+
   drop(event: CdkDragDrop<any[]> | any): void {
-      if (event.previousContainer == event.container) {
+    if (event.previousContainer == event.container) {
       if (event.previousIndex === event.currentIndex) {
         return;
       }
@@ -66,26 +67,21 @@ export class PageControlComponent {
       const item2 = event.container.data[event.currentIndex];
       let x = item.id;
       item.id = item2.id;
-      item2.id=x;
+      item2.id = x;
       this.fbS.docSave(event.container.id, item.id.toString(), item);
       this.fbS.docSave(event.previousContainer.id, item2.id.toString(), item2);
     }
   }
   newTask(): void {
-    let x = new fItem('','').getter();
+    let x = new fItem('', '').getter();
     const dialogRef = this.dialog.open(ItemCardDialogComponent, {
-      width:'70vh',
+      width: '70vh',
       data: {
         task: {
           name: '',
           description: '',
           imageArray: [],
         },
-        // task: {
-        //   name: '',
-        //   description: '',
-        //   imageArray: [],
-        // },
       },
     });
     dialogRef
@@ -98,7 +94,4 @@ export class PageControlComponent {
         this.fbS.createDoc(this.address, result.task);
       });
   }
-  saveTask(){
-  }
-
 }
