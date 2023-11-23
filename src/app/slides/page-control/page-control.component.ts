@@ -72,6 +72,7 @@ export class PageControlComponent {
       this.fbS.docSave(event.previousContainer.id, item2.id.toString(), item2);
     }
   }
+  
   newTask(): void {
     let x = new fItem('', '').getter();
     const dialogRef = this.dialog.open(ItemCardDialogComponent, {

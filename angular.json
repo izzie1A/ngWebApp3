@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngWebApp3:build:production"
+              "buildTarget": "ngWebApp3:build:production"
             },
             "development": {
-              "browserTarget": "ngWebApp3:build:development"
+              "buildTarget": "ngWebApp3:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngWebApp3:build"
+            "buildTarget": "ngWebApp3:build"
           }
         },
         "test": {

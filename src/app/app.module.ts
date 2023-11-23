@@ -23,6 +23,7 @@ import { HomePageComponent } from './slides/home-page/home-page.component';
 import { PageControlComponent } from './slides/page-control/page-control.component';
 import { AccountComponent } from './slides/account/account.component';
 import { SettingComponent } from './slides/setting/setting.component';
+import { DrawBoardComponent } from './slides/draw-board/draw-board.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -45,6 +46,7 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     PageControlComponent,
     AccountComponent,
     SettingComponent,
+    DrawBoardComponent,
     
   ],
   imports: [

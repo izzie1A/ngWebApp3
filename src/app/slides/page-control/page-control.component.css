@@ -6,7 +6,6 @@
     overflow-x: hidden;
 }
 .display{
-    /* min-height:50%; */
     /* min-height:20rem; */
     display: flex;
     flex-direction: column;
@@ -16,24 +15,17 @@
 .listBody{
     display:flex;
     flex-direction: column;
-    max-height:50vh;
-    overflow-y: scroll;
+    /* max-height:20rem; */
+    max-height:100vh;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 .itemCardImgFrame{
     height: 100%;
-    /* background-color: red; */
 }
 
 @media only screen and (min-width: 700px) {
-    .x{
-        /* height:30rem; */
-    }
 }
 
 @media only screen and (min-width: 1500px) {
-    
-    .x{
-        /* height:40rem; */
-    }
 }

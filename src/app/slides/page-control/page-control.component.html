@@ -1,12 +1,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
 <div class="itemCardPadding">
-    <div class="flexBetween">
-        <div class="itemCardPadding">
-            <b>3Page-control</b>
-        </div>
-    </div>
-
     <div class=" itemCard">
         <div class="itemCardHeader itemCardPadding flexBetween">
             <div class="flex" *ngIf="userName | async as user">
@@ -26,7 +20,6 @@
         <div class="itemCardBody itemCardGird itemCardPadding">
             <!-- display -->
             <div>
-
                 <div class="itemCard itemCardMargin display" [style]="'display:relative;'">
                     <div class="itemCardHeader itemCardPadding">
                         <div class="">
@@ -34,7 +27,7 @@
                         </div>
                     </div>
                     <div class="itemCardBody ">
-                        <div class="itemCardImgFrame" [style]="'min-height:var(--imgL);'" >
+                        <div class="itemCardImgFrame" [style]="'min-height:var(--imgL);'">
                             <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
                                 [src]="itemCardViewer.imageArray[0]">
                             <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center">
@@ -45,19 +38,23 @@
                             </div>
                         </div>
                     </div>
-                  
                 </div>
             </div>
-
             <!--  -->
 
             <!-- menu -->
-            <div>
-                <button>Refresh</button>
-                <button>New</button>
-                <div class=" itemCardGird itemCardPadding">
-                    <input type="text">
-                    <button class="material-symbols-outlined">search</button>
+            <div class="itemCard">
+                <div class=" ">
+                    <div class="itemCardHeader itemCardGird itemCardPadding">
+                        <input type="text">
+                        <button class=" itemButton ">
+                            <span class=" material-symbols-outlined">
+                                search
+                            </span>
+                        </button>
+                    </div>
+                    <div class=" itemCardGird itemCardPadding">
+                    </div>
                 </div>
 
                 <div class="listBody x" #{{address}}="cdkDropList" id="{{address}}" [cdkDropListData]="item$ | async"
