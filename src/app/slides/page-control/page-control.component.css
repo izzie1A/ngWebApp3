@@ -7,22 +7,29 @@
 }
 .display{
     /* min-height:20rem; */
-    display: flex;
+    /* max-height: 100vh; */
+    /* display: flex; */
     flex-direction: column;
     align-items: stretch;
     justify-content: space-between;
+    display:relative;
+    overflow-y: hidden;
+    background-color: red;
 }
 .listBody{
     display:flex;
     flex-direction: column;
     /* max-height:20rem; */
     max-height:100vh;
+    max-height:100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
 .itemCardImgFrame{
     height: 100%;
 }
+
+
 
 @media only screen and (min-width: 700px) {
 }

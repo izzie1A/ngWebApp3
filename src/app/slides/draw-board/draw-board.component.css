@@ -1,0 +1,18 @@
+.xGridContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.xGrid{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    /* border: 0.01rem solid; */
+}
+
+.xBlock{
+    box-shadow: var(--boxShadow3);
+    /* min-height: 100px;
+    min-width: 100px; */
+}

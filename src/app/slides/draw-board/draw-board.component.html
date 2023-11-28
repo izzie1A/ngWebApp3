@@ -1,1 +1,40 @@
-<p>draw-board works!</p>
+<div class="itemCard itemCardMargin  ">
+    <div class=" itemCardHeader itemCardPadding ">
+        <b>
+            {{counter}}
+        </b>
+    </div>
+    <div class="itemCardPadding">
+        <div class=" flexAround" *ngFor="let x of cArray; let i = index">
+            <div *ngFor="let y of x; let i = index">
+                <!-- {{i}} -->
+                {{y}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class=" itemCard itemCardPadding itemCardMargin">
+    <div class="xGrid" *ngFor="let x of ddArray; let i = index">
+        <div class="flexList" *ngFor="let y of x; let a = index">
+            <!-- {{a}}{{i}} -->
+            {{y.value}}
+        </div>
+    </div>
+</div>
+
+<!-- <div class="xGridContainer">
+    <div class="xGrid itemCardPadding">
+        <div class="" *ngFor="let x of ddArray; let i = index">
+            <div class="itemCardPadding">
+                {{x}}
+            </div>
+            <div class="itemCardPadding">
+                <div class="xBlock itemCardPadding" *ngFor="let y of x; let i = index">
+                    {{y}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

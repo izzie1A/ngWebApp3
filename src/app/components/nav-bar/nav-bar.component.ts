@@ -16,13 +16,14 @@ export class NavBarComponent {
   itemArray:navItem [] = [];
   constructor(){
     this.itemArray.push(new navItem('Home','home','home'));
-    this.itemArray.push(new navItem('Account','account','account'));
-    this.itemArray.push(new navItem('Setting','setting','setting'));
-    this.itemArray.push(new navItem('Neeeew :-)','pageControl','pageControl'));
+    this.itemArray.push(new navItem('Account','person','account'));
+    this.itemArray.push(new navItem('Setting','settings','setting'));
+    this.itemArray.push(new navItem('Neeeew :-)','folder','pageControl'));
   }
 
   expanNavbar(inputDiv: any,triggerArea:any) {
-    inputDiv.style.height = this.navExpanded ? '0px' : 'auto';
+    // inputDiv.style.height = this.navExpanded ? '0px' : 'auto';
+    inputDiv.style.height = this.navExpanded ? '0px' : '100vh';
     triggerArea.style.height = this.navExpanded ? '0vh' : '100vh';
     triggerArea.style.display = this.navExpanded ? 'none' : 'flex';
     inputDiv.style.opacity  = this.navExpanded ? '0' : '1';

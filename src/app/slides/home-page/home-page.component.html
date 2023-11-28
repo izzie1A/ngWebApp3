@@ -1,26 +1,37 @@
-<div class="search-results" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50"
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
     (scrolled)="onScroll()">
     <!-- <p [style]="'height:50vh;background-color:red;'">home-page works!</p> -->
-    <div [style]="'height:70vh;'" >
+    <div [style]="'height:100vh;'">
         <h1>
             home-page works!
         </h1>
     </div>
-        <div class="flexList">
-        <div class=" itemCardMargin" *ngFor="let x of homeArray; let i = index" [style]="'width:auto;min-height:var(--imgM)'">
-            <div class="itemCardBody itemCardPadding">
-                <div class="itemCardImgFrame flexAround " [style]="'max-height:70vh;'">
-                    <img class="itemImageFrameImage" [src]="'https://picsum.photos/'+5+'00/'+(10-i%10)+'00'">
-                </div>
-            </div>
-            <div class="itemCard itemCardPadding">
+    <div class="flexList  ">
+        <br>
+        <div class="itemCard s itemCar1dMargin" [style]="'height:70vh;margin:5%;margin-bottom: 10%;'">
+            <!-- <br>aaaa -->
+        </div>
+        <div class=" itemCard s itemCardMargin " *ngFor="let x of homeArray; let i = index"
+            [style]="'min-width:50%;width:auto;min-height:var(--imgM)'">
+            <div class="itemCardHeader itemCardPadding">
                 <b>
                     {{i}}
                 </b>
-                <button>like</button>
-                <button>Meow</button>
+            </div>
+            <div class="itemCardBody">
+                <div class="itemCardImgFrame  " [style]="'height:60vh;'">
+                    <img class="itemImageFrameImage" [src]="'https://picsum.photos/'+5+'00/'+(10-i%10)+'00'">
+                </div>
+            </div>
+            <div class=" itemCardPadding flexBewteen">
+                <div>
+                    
+                </div>
+                <div class="flexAround" >
+                    <button>like</button>
+                    <button>Meow</button>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

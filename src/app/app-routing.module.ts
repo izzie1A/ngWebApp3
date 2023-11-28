@@ -9,7 +9,7 @@ import { DrawBoardComponent } from './slides/draw-board/draw-board.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', component: DrawBoardComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'setting', component: SettingComponent },
   { path: 'account', component: AccountComponent },

@@ -1,10 +1,38 @@
 .itemCard{
 }
+
+.s {
+    position: sticky;
+    top: 15vh;
+    height: 500px;
+    box-shadow: var(--boxShadow2);
+    /* background-color: red; */
+    /* height: 100vh; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+/*     
+    &:nth-of-type(1) {
+        background: rgb(225, 204, 200);
+    }
+    
+    &:nth-of-type(2) {
+        background: rgb(240, 216, 163);
+    }
+    
+    &:nth-of-type(3) {
+        background: rgb(192, 211, 217);
+    }
+    
+    &:nth-of-type(4) {
+        background: rgb(189,201,199);
+    } */
+}
+
 @media only screen and (min-width: 700px) {
     .itemCard{
-        width: 50%;
+         width: 50%;
     }
- 
 }
 
 @media only screen and (min-width: 1500px) {

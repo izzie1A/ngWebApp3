@@ -35,6 +35,9 @@
   
   .navBarButtonText {
     font-size: var(--context);
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
   }
   
   .navBarButton {
@@ -131,6 +134,7 @@
     position: absolute;
     z-index: 2;
     background-color: var(--seaSick);
+    font-size: 1.5rem;
     transition-duration: 0.7s;
     opacity: 0;
     box-shadow: var(--boxShadow);

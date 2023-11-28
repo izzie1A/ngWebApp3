@@ -1,9 +1,12 @@
 <div>
     <div class="navBar itemCardPadding">
         <div class="navBarIconFrame flexCenter">
-            <span class="material-symbols-outlined" [style]="'font-size:2ch;'">
+            <span class="material-symbols-outlined" [style]="'font-size:2rem;'">
                 domain
             </span>
+            <div class="itemCardPadding" [style]="'font-size:1.5rem;'">
+                <a>Loream</a>
+            </div>
             <!-- <img class="navBarIcon" src="{{iconImgURL}}"> -->
         </div>
         <button class="navbarPopHamburgeIcon"
@@ -17,6 +20,9 @@
 
         <div class="navBarItemContainer ">
             <button *ngFor="let x of itemArray" class="navBarButton" routerLink="/{{x.url.toString()}}">
+                <span class="material-symbols-outlined" [style]="'font-size:1.5rem;'">
+                    {{x.iconName.toString()}}
+                </span>
                 <a class="navBarButtonText">
                     {{x.displayName}}
                 </a>
@@ -28,9 +34,9 @@
         <button *ngFor="let x of itemArray" class="navBarButton" routerLink="/{{x.url.toString()}}"
             (click)="expanNavbar(navbarDiv,NavTriggerArea);navBarClick(hamburgerIconDiv)"
             [style.color]="'var(--title)'">
-            <a class="">
+            <b class="">
                 {{x.displayName}}
-            </a>
+            </b>
         </button>
     </div>
 

@@ -1,5 +1,3 @@
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
 <div class="itemCardPadding">
     <div class=" itemCard">
         <div class="itemCardHeader itemCardPadding flexBetween">
@@ -17,25 +15,23 @@
             </div>
         </div>
 
-        <div class="itemCardBody itemCardGird itemCardPadding">
+        <div class="itemCardBody itemCardGird itemCardPadding display ">
             <!-- display -->
-            <div>
-                <div class="itemCard itemCardMargin display" [style]="'display:relative;'">
-                    <div class="itemCardHeader itemCardPadding">
-                        <div class="">
-                            <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
-                        </div>
+            <div class="itemCard itemCardMargin">
+                <div class="itemCardHeader itemCardPadding">
+                    <div class="">
+                        <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
                     </div>
-                    <div class="itemCardBody ">
-                        <div class="itemCardImgFrame" [style]="'min-height:var(--imgL);'">
-                            <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
-                                [src]="itemCardViewer.imageArray[0]">
-                            <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center">
-                                <b>No Image uploaded</b>
-                                <span class="material-symbols-outlined">
-                                    image
-                                </span>
-                            </div>
+                </div>
+                <div class="itemCardBody itemCardPadding ">
+                    <div class="itemCardImgFrame" [style]="'min-height:var(--imgL);'">
+                        <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
+                            [src]="itemCardViewer.imageArray[0]">
+                        <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center">
+                            <b>No Image uploaded</b>
+                            <span class="material-symbols-outlined">
+                                image
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -43,7 +39,7 @@
             <!--  -->
 
             <!-- menu -->
-            <div class="itemCard">
+            <div class="itemCard" [style]="'height:90vh;'">
                 <div class=" ">
                     <div class="itemCardHeader itemCardGird itemCardPadding">
                         <input type="text">
@@ -64,7 +60,6 @@
                     </app-item-card>
                 </div>
             </div>
-            <!--  -->
         </div>
     </div>
 </div>
