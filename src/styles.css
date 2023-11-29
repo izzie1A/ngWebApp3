@@ -385,9 +385,14 @@ body {
 }
 /* backend */
 .itemCardBack {
-    width: 100%;
+    /* width: 100%; */
+    border-top: 0.0125rem solid var(--dark);
+    margin-left: 2.5% ;
+    margin-right: 2.5% ;
+    /* background-color: red; */
+    
     /* min-height: 80px; */
-    background-color: var(--seaSick);
+    /* background-color: var(--seaSick); */
 }
 
 /* .itemCardBack:before {
@@ -510,18 +515,15 @@ body {
 .hClick {
     all: unset;
 }
-
 .hClick:active {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0.5vh 0px 0px;
     /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px inset, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
 }
-
 .hClick:focus {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0.5vh 0px 0px;
     /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px inset, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
     color: var(--yellow);
 }
-
 .hClick:hover {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0.5vh 0px 0px;
     /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px inset, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
@@ -545,7 +547,6 @@ body {
 }
 
 /* 
-  
   
   * {
    background-color: rgba(255, 0, 0, 0.1);
@@ -621,13 +622,3 @@ body {
         width: 100px;
     }
 }
-/* 
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-} */

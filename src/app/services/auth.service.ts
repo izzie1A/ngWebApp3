@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { Observable } from 'rxjs/internal/Observable';
 import { ReturnStatement } from '@angular/compiler';
 import { flatMap } from 'rxjs';
+import { browserPopupRedirectResolver } from "firebase/auth";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class AuthService {
   serverResponse: string = '';
   fakeUser: any = {
   }
+  
   storeUser!: User;
   userSubscription: Subscription;
   authState$ = authState(this.auth);
@@ -98,7 +100,7 @@ export class AuthService {
   }
   googleSignin() {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(this.auth, provider)
+    signInWithPopup(this.auth, provider, browserPopupRedirectResolver)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
@@ -163,6 +165,7 @@ export class AuthService {
     const auth = getAuth();
     signOut(auth).then(() => {
     }).catch((error) => {
+      console.warn(error)
     });
   }
 }
