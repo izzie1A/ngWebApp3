@@ -3,9 +3,24 @@
     top: 0;
     /* padding: 5px; */
     background-color: var(--seaSick);
-    z-index:1;
+    z-index: 1;
 }
 
-.appContainer{
+.appContainer {
     position: relative;
 }
+
+@media only screen and (min-width: 700px) {
+    .a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .b {
+        width: 700px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {}

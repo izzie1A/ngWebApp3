@@ -26,11 +26,15 @@ export class DrawBoardComponent {
     }
     const fibonacciTree = this.generateFibonacciTree(10);
     this.printFibonacciTree2D(fibonacciTree);
-    this.x(10,10);
+    this.x(10, 10);
   }
   timeloop() {
     this.counter++;
-    // this.cArray[this.cArray.length-1].push(0);
+    this.wfc();
+    let fbTreeSize = this.counter%10;
+    // let fbTreeSize = Math.floor(Math.sin(this.counter)*10);
+    const fibonacciTree = this.generateFibonacciTree(fbTreeSize*2);
+    this.printFibonacciTree2D(fibonacciTree);
   }
 
   generateFibonacciTree(n: number): FibonacciTreeNode | null {
@@ -53,6 +57,7 @@ export class DrawBoardComponent {
       console.log("Empty tree");
       return;
     }
+    this.cArray = [];
     const result: number[][] = [];
     const queue: { node: FibonacciTreeNode; level: number }[] = [{ node: root, level: 0 }];
     while (queue.length > 0) {
@@ -83,11 +88,27 @@ export class DrawBoardComponent {
   }
 
   x(x: number, y: number) {
-    let a = new Array(10).fill(new wfcBlock(9));
+    // let a = new Array(10).fill(new wfcBlock(0));
     // let a = new Array(10).fill('m');
     for (let i = 0; i < x; i++) {
-      this.ddArray.push(a);
+      this.ddArray.push([]);
+      for (let j = 0; j < x; j++) {
+        this.ddArray[i].push(new wfcBlock(0));
+      }
     }
+  }
+
+  wfc() {
+    this.ddArray.forEach((x)=>{
+      x.forEach((y)=>{
+        y.value++
+      })
+    })
+    // for (let i = 0; i < this.ddArray.length; i++) {
+    //   for (let j = 0; j < this.ddArray[i].length; j++) {
+    //     this.ddArray[i][j].value++;
+    //   }
+    // }
   }
 }
 

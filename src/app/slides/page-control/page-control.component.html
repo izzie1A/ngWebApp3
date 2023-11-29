@@ -23,8 +23,8 @@
                         <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
                     </div>
                 </div>
-                <div class="itemCardBody itemCardPadding ">
-                    <div class="itemCardImgFrame" [style]="'min-height:var(--imgL);'">
+                <div class="itemCardBody itemCardPadding " [style]="'position:relative;'">
+                    <div class="itemCardImgFrame itemCardGrid" [style]="''">
                         <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
                             [src]="itemCardViewer.imageArray[0]">
                         <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center">
@@ -39,7 +39,7 @@
             <!--  -->
 
             <!-- menu -->
-            <div class="itemCard" [style]="'height:90vh;'">
+            <div class="itemCard" [style]="'max-height:90vh;'">
                 <div class=" ">
                     <div class="itemCardHeader itemCardGird itemCardPadding">
                         <input type="text">

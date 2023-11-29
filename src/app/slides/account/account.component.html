@@ -95,7 +95,6 @@
 <!-- login view -->
 <!-- login view -->
 <div class="itemCard itemCardMargin " *ngIf="this.authS.user$ |async as user">
-
     <div class="itemCardHeader">
         <br>
         <br>
@@ -130,17 +129,19 @@
             </button>
         </div>
     </div>
-    <div class="itemCardBack">
-        <div class="itemCard">
+    <div class="">
+        <div class="itemCardBack">
             <div class=" itemCardPadding">
                 <b>Info</b>
             </div>
             <div class="itemCardBody itemCardPadding">
                 <div class="flexBetween">
                     <div class="itemCardMargin">
-                        <b>Name</b>
-                        <p>{{user.displayName}}</p>
-                        <div class="flex">
+                        <div class="itemCardGrid">
+                            <b>Name</b>
+                            <p>{{user.displayName}}</p>
+                        </div>
+                        <div class="itemCardGird">
                             <input type="text" [style]="'width:auto;'">
                             <button (click)="0" class=" itemImageButton flexAround">
                                 <span class="material-symbols-outlined ">Save</span>
@@ -151,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class="itemCard">
+        <div class="itemCardBack">
             <div class=" itemCardPadding">
                 <b>Message</b>
             </div>
