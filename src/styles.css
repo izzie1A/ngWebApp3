@@ -144,6 +144,7 @@ body {
 }
 .itemImageFrameImage {
     width: 100%;
+    max-height: 100%;
 }
 
 .itemImageFrameImage2 {

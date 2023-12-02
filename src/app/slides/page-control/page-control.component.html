@@ -1,6 +1,84 @@
+<div class="">
+    <div class=" itemCard">
+        <div class=" itemCardPadding flexBetween">
+            <div class="flex" *ngIf="userName | async as user">
+                <img alt="userImage" class="itemCardIconFrame itemCardMargin" [src]="user.photoURL">
+                <a class="itemCardPadding">{{user.displayName}}</a>
+            </div>
+            <div class="">
+                <button (click)="newTask()" class="itemButton" [style]="'font-size:var(--title);'">
+                    <span class="material-symbols-outlined" [style]="'font-size:var(--title);'">
+                        add
+                    </span>
+                    <b>New</b>
+                </button>
+            </div>
+        </div>
+
+        <div class="itemCardBody itemCardGird  display  ">
+            <!-- menu -->
+            <div class=" " [style]="' '">
+                <div class="itemCardPadding ">
+                    <div class=" itemCardGrid itemCardPadding">
+                        <div class="flex" *ngIf="userName | async as user">
+                            <img alt="userImage" class="itemCardIconFrame itemCardMargin" [src]="user.photoURL">
+                            <a class="itemCardPadding">{{user.displayName}}</a>
+                        </div>
+                        <div class=" itemCardGird itemCardPadding">
+                            <input type="text">
+                            <button class=" itemButton ">
+                                <span class=" material-symbols-outlined">
+                                    search
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class=" itemCardGird itemCardPadding">
+                    </div>
+                </div>
+                <!-- itemCardRoleItem -->
+                <div class="listBody x" #{{address}}="cdkDropList" id="{{address}}" [cdkDropListData]="item$ | async"
+                    (cdkDropListDropped)="drop($event)" cdkDropList>
+                    <app-item-card (newItemEvent)="editItem($event,i)" (click)="selectItemCard(x)" [address]="address"
+                        *ngFor="let x of item$ | async ; let i = index;" [item]="x">
+                    </app-item-card>
+                </div>
+            </div>
+            <!-- display -->
+            <div class="itemCard itemCardMargin">
+                <div class="itemCardHeader itemCardPadding">
+                    <div class="">
+                        <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
+                    </div>
+                </div>
+                <div class="itemCardBody itemCardPadding flexCenter " [style]="'min-height:80%;'">
+                    <div class="itemCardImgFrame " [style]="''">
+                        <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
+                            [src]="itemCardViewer.imageArray[0]">
+                        <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center">
+                            <b>No Image uploaded</b>
+                            <span class="material-symbols-outlined">
+                                image
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="itemCardBack">
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <!--  -->
+
+        </div>
+    </div>
+</div>
+
+<!-- lower part -->
 <div class="itemCardPadding">
     <div class=" itemCard">
-        <div class="itemCardHeader itemCardPadding flexBetween">
+        <div class=" itemCardPadding flexBetween">
             <div class="flex" *ngIf="userName | async as user">
                 <img alt="userImage" class="itemCardIconFrame itemCardMargin" [src]="user.photoURL">
                 <a class="itemCardPadding">{{user.displayName}}</a>
@@ -23,8 +101,8 @@
                         <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
                     </div>
                 </div>
-                <div class="itemCardBody itemCardPadding " [style]="'position:relative;'">
-                    <div class="itemCardImgFrame itemCardGrid" [style]="''">
+                <div class="itemCardBody itemCardPadding flexCenter " [style]="'min-height:80%;'">
+                    <div class="itemCardImgFrame " [style]="''">
                         <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
                             [src]="itemCardViewer.imageArray[0]">
                         <div *ngIf="itemCardViewer.imageArray.length<1" class="flexAround center">

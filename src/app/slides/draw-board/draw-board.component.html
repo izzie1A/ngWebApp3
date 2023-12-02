@@ -1,33 +1,39 @@
-<div class="itemCard  itemCardMargin">
+<!-- <div class="itemCard  itemCardMargin">
     <div class="itemCardHeader itemCardPadding">
         sadfsdf
     </div>
-
+</div> -->
+<div class=" itemCardPadding ">
+    <b>
+        {{counter}}
+    </b>
 </div>
 
-
-<div class="itemCard itemCardMargin  ">
+<div class=" itemCard  itemCardMargin">
+    
     <div class=" itemCardHeader itemCardPadding ">
-        <b>
-            {{counter}}
-        </b>
+        <b></b>
     </div>
-    <div class="itemCardPadding">
-        <div class=" flexAround" *ngFor="let x of cArray; let i = index">
-            <div *ngFor="let y of x; let i = index">
-                <!-- {{i}} -->
-                {{y}}
+    <div class=" itemCardPadding ">
+        
+        <div class="xGrid" *ngFor="let x of ddArray; let i = index">
+            <div class="flexList" *ngFor="let y of x; let a = index">
+                <!-- {{a}}{{i}} -->
+                {{y.value}}
             </div>
         </div>
     </div>
 </div>
 
 
-<div class=" itemCard itemCardPadding itemCardMargin">
-    <div class="xGrid" *ngFor="let x of ddArray; let i = index">
-        <div class="flexList" *ngFor="let y of x; let a = index">
-            <!-- {{a}}{{i}} -->
-            {{y.value}}
+<div class="itemCard itemCardMargin  ">
+    
+    <div class="itemCardPadding" [style]="'height:50vh;'">
+        <div class=" flexAround" *ngFor="let x of cArray; let i = index">
+            <div *ngFor="let y of x; let i = index">
+                <!-- {{i}} -->
+                {{y}}
+            </div>
         </div>
     </div>
 </div>

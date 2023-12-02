@@ -15,8 +15,9 @@ export class DrawBoardComponent {
   cARange = 3;
   cArray: any = [[]];
 
-  ddArray: any[][] = [];
+  ddArray: wfcBlock[][] = [];
   private intervalId: any;
+
   constructor() {
     this.intervalId = setInterval(() => {
       this.timeloop();
@@ -31,9 +32,8 @@ export class DrawBoardComponent {
   timeloop() {
     this.counter++;
     this.wfc();
-    let fbTreeSize = this.counter%10;
-    // let fbTreeSize = Math.floor(Math.sin(this.counter)*10);
-    const fibonacciTree = this.generateFibonacciTree(fbTreeSize*2);
+    let fbTreeSize = this.counter % 10;
+    const fibonacciTree = this.generateFibonacciTree((fbTreeSize + 10));
     this.printFibonacciTree2D(fibonacciTree);
   }
 
@@ -46,12 +46,18 @@ export class DrawBoardComponent {
     root.right = this.generateFibonacciTree(n - 2);
     return root;
   }
+
   fibonacci(num: number): number {
     if (num <= 1) {
       return num;
     }
-    return this.fibonacci(num - 1) + this.fibonacci(num - 2);
+    let fibValues: number[] = [0, 1];
+    for (let i = 2; i <= num; i++) {
+      fibValues.push(fibValues[i - 1] + fibValues[i - 2]);
+    }
+    return fibValues[num];
   }
+
   printFibonacciTree2D(root: FibonacciTreeNode | null): void {
     if (!root) {
       console.log("Empty tree");
@@ -77,19 +83,17 @@ export class DrawBoardComponent {
       this.cArray.push(nodes)
     }
   }
-  printFibonacciTree(root: FibonacciTreeNode | null, depth: number = 0): void {
-    if (!root) {
-      return;
-    }
-    this.printFibonacciTree(root.right, depth + 1);
-    const spaces = Array(depth * 2 + 1).join(" ");
-    console.log(spaces + root.value);
-    this.printFibonacciTree(root.left, depth + 1);
-  }
+  // printFibonacciTree(root: FibonacciTreeNode | null, depth: number = 0): void {
+  //   if (!root) {
+  //     return;
+  //   }
+  //   this.printFibonacciTree(root.right, depth + 1);
+  //   const spaces = Array(depth * 2 + 1).join(" ");
+  //   console.log(spaces + root.value);
+  //   this.printFibonacciTree(root.left, depth + 1);
+  // }
 
   x(x: number, y: number) {
-    // let a = new Array(10).fill(new wfcBlock(0));
-    // let a = new Array(10).fill('m');
     for (let i = 0; i < x; i++) {
       this.ddArray.push([]);
       for (let j = 0; j < x; j++) {
@@ -99,16 +103,31 @@ export class DrawBoardComponent {
   }
 
   wfc() {
-    this.ddArray.forEach((x)=>{
-      x.forEach((y)=>{
-        y.value++
-      })
-    })
-    // for (let i = 0; i < this.ddArray.length; i++) {
-    //   for (let j = 0; j < this.ddArray[i].length; j++) {
-    //     this.ddArray[i][j].value++;
-    //   }
-    // }
+    const outOfBoun = (position:number,direction:number)=>{
+        switch(position+direction){
+        }
+    }
+    // this.ddArray.forEach((x) => {
+    //   x.forEach((y: wfcBlock) => {
+    //     y.activate();
+    //   })
+    // })
+    for (let i = 0; i < this.ddArray.length; i++) {
+      for (let j = 0; j < this.ddArray[i].length; j++) {
+        (this.ddArray[i][j] as wfcBlock).activate();
+        const nabour = (x: number) => {
+          let normalNabour = {
+            left: x - 1,
+            right: x + 1,
+            top: x - this.ddArray.length,
+            bottom: x + this.ddArray.length,
+          }
+          console.log(normalNabour)
+          return normalNabour;
+        }
+        nabour(i * this.ddArray.length + j);
+      }
+    }
   }
 }
 
@@ -117,6 +136,12 @@ class wfcBlock {
   nabour: any[] = [];
   constructor(value: number) {
     this.value = value;
+  }
+  activate() {
+    this.value++;
+  }
+  getNabour() {
+
   }
 }
 
