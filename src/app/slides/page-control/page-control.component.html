@@ -1,10 +1,6 @@
-<div class="">
-    <div class=" itemCard">
+<div class="itemCardPadding">
+    <div class=" itemCard" *ngIf="userName | async as user">
         <div class=" itemCardPadding flexBetween">
-            <div class="flex" *ngIf="userName | async as user">
-                <img alt="userImage" class="itemCardIconFrame itemCardMargin" [src]="user.photoURL">
-                <a class="itemCardPadding">{{user.displayName}}</a>
-            </div>
             <div class="">
                 <button (click)="newTask()" class="itemButton" [style]="'font-size:var(--title);'">
                     <span class="material-symbols-outlined" [style]="'font-size:var(--title);'">
@@ -51,7 +47,7 @@
                         <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
                     </div>
                 </div>
-                <div class="itemCardBody itemCardPadding flexCenter " [style]="'min-height:80%;'">
+                <div class="itemCardBody itemCardPadding flexList flexAround " [style]="''">
                     <div class="itemCardImgFrame " [style]="''">
                         <img *ngIf="itemCardViewer.imageArray.length>0" class="itemImageFrameImage"
                             [src]="itemCardViewer.imageArray[0]">
@@ -62,15 +58,19 @@
                             </span>
                         </div>
                     </div>
-                </div>
-                <div class="itemCardBack">
-                    <br>
-                    <br>
-                    <br>
+                    <div class="itemCardBack" [style]="'width:100%;'" >
+                        <b class="itemCardPadding keyValue">{{itemCardViewer.name}}</b>
+                        <div>
+                            <a class="itemCardPadding keyValue">{{itemCardViewer.description}}</a>
+                        </div>
+                        <div>
+                            <a class="itemCardPadding keyValue">{{itemCardViewer.description}}</a>
+                        </div>
+                        <br>
+                    </div>
                 </div>
             </div>
             <!--  -->
-
         </div>
     </div>
 </div>
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        <div class="itemCardBody itemCardGird itemCardPadding display ">
+        <div class="itemCardBody itemCardGrid itemCardPadding display ">
             <!-- display -->
             <div class="itemCard itemCardMargin">
                 <div class="itemCardHeader itemCardPadding">
@@ -117,9 +117,9 @@
             <!--  -->
 
             <!-- menu -->
-            <div class="itemCard" [style]="'max-height:90vh;'">
+            <div class="" [style]="'max-height:90vh;'">
                 <div class=" ">
-                    <div class="itemCardHeader itemCardGird itemCardPadding">
+                    <div class=" itemCardGird itemCardPadding">
                         <input type="text">
                         <button class=" itemButton ">
                             <span class=" material-symbols-outlined">

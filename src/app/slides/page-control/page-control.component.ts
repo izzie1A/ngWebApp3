@@ -25,6 +25,9 @@ export class PageControlComponent {
     this.authS.authState$.forEach((result: User | null) => {
       result ? this.userUid = result.uid : 0;
     });
+    this.item$.forEach((r:any)=>{
+      console.log(r);
+    })
   }
   selectItemCard(input: fItem) {
     console.log(input);
@@ -72,7 +75,7 @@ export class PageControlComponent {
       this.fbS.docSave(event.previousContainer.id, item2.id.toString(), item2);
     }
   }
-  
+
   newTask(): void {
     let x = new fItem('', '').getter();
     const dialogRef = this.dialog.open(ItemCardDialogComponent, {

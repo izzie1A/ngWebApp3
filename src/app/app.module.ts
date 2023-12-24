@@ -13,10 +13,12 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getFunctions, provideFunctions } from '@angular/fire/functions';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+
 import { ItemCardComponent } from './components/item-Cards/item-card/item-card.component';
 import { ItemCardDetailComponent } from './components/item-Cards/item-card-detail/item-card-detail.component';
 import { ItemCardDialogComponent } from './components/item-Cards/item-card-dialog/item-card-dialog.component';
 import { ItemCardListComponent } from './components/item-Cards/item-card-list/item-card-list.component';
+
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './slides/home-page/home-page.component';
@@ -31,6 +33,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 @NgModule({

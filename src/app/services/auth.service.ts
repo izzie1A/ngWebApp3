@@ -20,6 +20,7 @@ export class AuthService {
   serverResponse: string = '';
   fakeUser: any = {
   }
+  userinfo:any = {}
   
   storeUser!: User;
   userSubscription: Subscription;
@@ -29,6 +30,7 @@ export class AuthService {
       if (aUser != null) {
         this.storeUser = aUser;
         this.fbS.docSave('userTest',aUser.uid, this.loginUpdate());
+        this.userinfo = this.loginUpdate();
       } else if (aUser == null) {
         this.storeUser = this.fakeUser;
       } else {

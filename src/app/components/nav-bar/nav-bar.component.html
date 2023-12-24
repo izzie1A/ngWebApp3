@@ -1,5 +1,5 @@
 <div>
-    <div class="navBar itemCardPadding">
+    <div class="navBar ">
         <div class="navBarIconFrame flexCenter">
             <span class="material-symbols-outlined" [style]="'font-size:2rem;'">
                 domain
@@ -12,7 +12,7 @@
         <button class="navbarPopHamburgeIcon"
             (click)="expanNavbar(navbarDiv,NavTriggerArea);navBarClick(hamburgerIconDiv);" (click)="0">
             <div class="container" #hamburgerIconDiv>
-                <div class="bar1"></div>
+`                <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
@@ -41,5 +41,6 @@
     </div>
 
     <div (click)="navBarClick(hamburgerIconDiv);expanNavbar(navbarDiv,NavTriggerArea);" class="navTriggerArea"
-        #NavTriggerArea></div>
+        #NavTriggerArea>
+    </div>
 </div>

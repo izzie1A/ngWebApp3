@@ -202,13 +202,27 @@ export class FirebaseControlService {
     });
   }
 
+  getFiletype(url: string){
+    
+  }
+
+  async createFile(url: string, files: any) {
+  const storageRef = ref(getStorage(), url);
+    const uploadTask = uploadBytesResumable(storageRef, files);
+    return uploadTask.then((snapshot) => {
+      return getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        return downloadURL.toString();
+      });
+    });
+  }
+
   async fireStorageUploadFile(address: string, input: HTMLInputElement) {
     if (!input.files) return ""
     const files: FileList = input.files;
     let url = address + input.value.split("\\").pop();
     const storageRef = ref(getStorage(), url);
     const uploadTask = uploadBytesResumable(storageRef, files[0]);
-    return uploadTask.then((snapshotx) => {
+    return uploadTask.then((snapshot) => {
       return getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
         // console.log('File available at', downloadURL);
         return downloadURL.toString();

@@ -1,14 +1,16 @@
 <div class="search-results" infiniteScroll [infiniteScrollDistance]="3" [infiniteScrollThrottle]="500"
     (scrolled)="onScroll()">
     <div [style]="'height:100vh;'">
-        <div class="itemCarder ">
+        <div class="itemjljhlkjhlkjhCarder ">
             <div class="itemCardImgFrame  " [style]="'height:60vh;'">
                 <img class="itemImageFrameImage" [src]="'https://picsum.photos/500/500'">
             </div>
         </div>
         <h1 class=" itemCardPadding">
             <b>
-                aa
+                <a class="navBarButtonText" routerLink="/setting">
+                    homepage
+                </a>
             </b>
         </h1>
         <div class="itemCardBack itemCardMargin">
@@ -30,18 +32,15 @@
                     {{i}}
                 </b>
             </div>
-            <div class="itemCardBody">
-                <div class="itemCardImgFrame  " [style]="'height:60vh;'">
-                    <img class="itemImageFrameImage" [src]="'https://picsum.photos/'+5+'00/'+(10-i%10)+'00'">
+            <div class="itemCardBody q">
+                <div class="itemCardImgFrame  " [style]="''">
+                    <img class="" [src]="'https://picsum.photos/'+5+'00/'+(10-i%10)+'00'">
                 </div>
-            </div>
-            <div class=" itemCardPadding flexBewteen">
-                <div>
-
-                </div>
-                <div class="flexAround">
-                    <button>like</button>
-                    <button>Meow</button>
+                <div class=" itemCardPadding flexBewteen">
+                    <div class="flexAround">
+                        <button>like</button>
+                        <button>Meow</button>
+                    </div>
                 </div>
             </div>
         </div>
