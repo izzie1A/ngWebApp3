@@ -22,9 +22,8 @@
                 </button>
             </div>
             <div class="">
-                <div class="flexList" (cdkDropListDropped)="localArrayDrop($event)"
-                    cdkDropListOrientation="vertical" [cdkDropListData]="data.task.imageArray" cdkDropList
-                    [style]="'max-height:50vh;overflow-y:scroll;'">
+                <div class="flexList" (cdlakDropListDropped)="localArrayDrop($event)" cdkDropListOrientation="vertical"
+                    [cdkDropListData]="data.task.imageArray" cdkDropList [style]="'max-height:50vh;overflow-y:scroll;'">
 
                     <div class="itemImageFrame" *ngFor="let x of data.task.imageArray ; let i = index" cdkDrag>
                         <img class="itemImageFrameImage" src="{{x}}" [style]="''">
@@ -36,7 +35,7 @@
                                 <span class="material-symbols-outlined">
                                     cancel
                                 </span>
-                            </button>
+                            </button> 
                         </div>
                         <div class="flex itemCardPadding">
                             <div class="flexCenter">

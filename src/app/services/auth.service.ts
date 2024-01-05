@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, si
 import { FacebookAuthProvider, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 import { FirebaseControlService, tItem } from "src/app/services/firebase-control.service";
-import { Auth, user, authState } from '@angular/fire/auth';
+import { Auth, user, authState, reauthenticateWithPhoneNumber } from '@angular/fire/auth';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Observable } from 'rxjs/internal/Observable';
 import { ReturnStatement } from '@angular/compiler';
@@ -19,18 +19,22 @@ export class AuthService {
   user$ = user(this.auth);
   serverResponse: string = '';
   fakeUser: any = {
+    id: 'nullID', 
+    name: 'nulldisplayName',
+    imageURL: 'nullphotoURL',
+    email: 'nullemail',
+    timeStamp: Date(),
   }
-  userinfo:any = {}
-  
-  storeUser!: User;
   userSubscription: Subscription;
   authState$ = authState(this.auth);
+  storeUser!: User;
+  userinfo:any = {}
   constructor(private fbS: FirebaseControlService) {
     this.userSubscription = this.user$.subscribe((aUser: User | null) => {
       if (aUser != null) {
         this.storeUser = aUser;
-        this.fbS.docSave('userTest',aUser.uid, this.loginUpdate());
         this.userinfo = this.loginUpdate();
+        this.fbS.docSave('userTest',aUser.uid, this.userinfo);
       } else if (aUser == null) {
         this.storeUser = this.fakeUser;
       } else {
@@ -38,11 +42,6 @@ export class AuthService {
       };
     })
   }
-
-  getUserID(){
-    return this.storeUser
-  }
-
   loginUpdate() {
     return {
       id: this.storeUser.uid, 
@@ -52,7 +51,16 @@ export class AuthService {
       timeStamp: Date(),
     };
   }
-
+  signout() {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+    }).catch((error) => {
+      console.warn(error)
+    });
+  }
+  // getUserID(){
+  //   return this.storeUser
+  // }
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
   }
@@ -64,9 +72,7 @@ export class AuthService {
   }
 
   emailRegister(email: string, password: string) {
-    console.log("start")
     if (this.checkEmailRegisterValid(email) == false) return
-
     return createUserWithEmailAndPassword(this.auth, email, password).then((userCredential) => {
       const user = userCredential.user;
       return user;
@@ -78,8 +84,9 @@ export class AuthService {
         return error.message;
       });
   }
+
   emailSignIn(email: string, password: string) {
-    signInWithEmailAndPassword(this.auth, email, password)
+    return signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -89,14 +96,15 @@ export class AuthService {
         }
         console.warn(data);
         console.warn(user);
-        // ...
+        return data
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         this.serverResponse = error.code;
-        alert(errorMessage);
+        // alert(errorMessage);
         console.warn(errorMessage);
+        return errorMessage
       });
 
   }
@@ -163,11 +171,5 @@ export class AuthService {
       });
   }
 
-  signout() {
-    const auth = getAuth();
-    signOut(auth).then(() => {
-    }).catch((error) => {
-      console.warn(error)
-    });
-  }
+
 }

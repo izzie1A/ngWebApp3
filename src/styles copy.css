@@ -1,7 +1,11 @@
 html,
 body {
     height: 100%;
+}
+
+body {
     margin: 0;
+    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }
 
 :root {
@@ -17,7 +21,7 @@ body {
     --darkBlue: #000925;
 
     --seaSick: #e9e8e2;
-    --sickSea: var(--dark);
+    --sickSea: var(--dark);     
 
     --main: var(--deepBlue);
     --mainText: var(--seaSick);
@@ -27,9 +31,9 @@ body {
     --bg: var(--white);
     --histarri: var(--yellow);
 
-    --title: 8ch;
-    --context: 4ch;
-    --keyValue: 2ch;
+    --title: 2ch;
+    --context: 1ch;
+    --keyValue: 12px;
 
     --screenS: 700px;
     --screenM: 1200px;
@@ -138,7 +142,6 @@ body {
     align-items: center;
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
 }
-
 .itemImageFrameImage {
     /* width: 100%; */
     /* height: 100%; */
@@ -197,12 +200,13 @@ body {
     overflow: hidden;
 }
 
-.itemCardIconFrame {
+.itemCardIconFrame{
     border-radius: 100vmax;
-    height: var(--imgS)
+    height:var(--imgS)
 }
 
 
+/* tagList */
 /* tagList */
 .itemCardTagList {
     display: flex;
@@ -299,7 +303,6 @@ body {
     display: grid;
     grid-template-columns: 31% 69%;
 }
-
 .itemCardGird {
     display: grid;
     grid-template-columns: 69% 31%;
@@ -313,7 +316,7 @@ body {
 .itemCardGrid3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2%;
+    gap:2%;
 }
 
 .itemCardGrid4 {
@@ -336,6 +339,10 @@ body {
     margin: 2%;
 }
 
+.center{
+    align-items: center;
+    justify-content: center;
+}
 /* flex */
 .flexStart {
     display: flex;
@@ -372,18 +379,24 @@ body {
 
 .flexList {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
 .flex {
     display: flex;
 }
-
 /* backend */
 .itemCardBack {
+    /* width: 100%; */
     border-top: 0.0125rem solid var(--dark);
-    margin-left: 2.5%;
-    margin-right: 2.5%;
+    margin-left: 2.5% ;
+    margin-right: 2.5% ;
+    /* background-color: red; */
+    
+    /* min-height: 80px; */
+    /* background-color: var(--seaSick); */
 }
 
 /* .itemCardBack:before {
@@ -502,40 +515,34 @@ body {
 .hClick {
     all: unset;
 }
-
 .hClick:active {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0.5vh 0px 0px;
     /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px inset, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
 }
-
 .hClick:focus {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0.5vh 0px 0px;
     /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px inset, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
     color: var(--yellow);
 }
-
 .hClick:hover {
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0.5vh 0px 0px;
     /* box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px inset, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
 }
 
 /* text */
-.text {
+.text{
     text-overflow: ellipsis;
 }
-
-.title {
-    font-size: var(--title);
+.title{
+    font-size:var(--title);
     overflow: hidden;
 }
-
-.content {
-    font-size: var(--content);
+.content{
+    font-size:var(--content);
     overflow: hidden;
 }
-
-.keyValue {
-    font-size: var(--keyValue);
+.keyValue{
+    font-size:var(--keyValue);
     overflow: hidden;
 }
 
@@ -580,7 +587,7 @@ body {
 @media only screen and (min-width: 700px) {
     :root {
         --title: 3ch;
-        --context: 2ch;
+        --context:2ch;
         --keyvalue: 9px;
         --imgS: 6ch;
         --imgM: 8ch;
@@ -614,12 +621,4 @@ body {
         height: 100px;
         width: 100px;
     }
-}
-
-.form__input {
-    box-shadow: var(--boxShadow3);    
-    /* width: 100%; */
-    font-size: 4ch;
-    height: 2ch;
-    border: none;
 }
