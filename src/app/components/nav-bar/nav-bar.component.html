@@ -12,19 +12,19 @@
         <button class="navbarPopHamburgeIcon"
             (click)="expanNavbar(navbarDiv,NavTriggerArea);navBarClick(hamburgerIconDiv);" (click)="0">
             <div class="container" #hamburgerIconDiv>
-`                <div class="bar1"></div>
+                <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
         </button>
 
         <div class="navBarItemContainer ">
-            <button *ngFor="let x of itemArray" class="navBarButton" routerLink="/{{x.url.toString()}}">
-                <span class="material-symbols-outlined" [style]="'font-size:1.5rem;'">
-                    {{x.iconName.toString()}}
+            <button *ngFor="let navbarItem of itemArray" class="navBarButton itemCardMargin" routerLink="/{{navbarItem.url.toString()}}">
+                <span class="material-symbols-outlined" [style]="'font-size:var(--context);'">
+                    {{navbarItem.iconName.toString()}}
                 </span>
                 <a class="navBarButtonText">
-                    {{x.displayName}}
+                    {{navbarItem.displayName}}
                 </a>
             </button>
         </div>
@@ -33,7 +33,7 @@
     <div class="hideNavbbar" #navbarDiv>
         <button *ngFor="let x of itemArray" class="navBarButton" routerLink="/{{x.url.toString()}}"
             (click)="expanNavbar(navbarDiv,NavTriggerArea);navBarClick(hamburgerIconDiv)"
-            [style.color]="'var(--title)'">
+            [style.color]="'var(--context)'">
             <b class="">
                 {{x.displayName}}
             </b>

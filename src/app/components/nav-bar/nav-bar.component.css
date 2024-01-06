@@ -38,8 +38,8 @@
 .navBarButton {
   all: unset;
   display: flex;
-  padding: 0.5%;
-  margin: 0.5%;
+  padding: 1%;
+  margin: 1%;
   font-size: var(--context);
   cursor: pointer;
   text-align: center;
